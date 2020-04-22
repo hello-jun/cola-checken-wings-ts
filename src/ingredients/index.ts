@@ -1,12 +1,14 @@
 /**
  * 食材单位
  */
-export type IngredientUnits = '块' | '克' | '片' | '个' | '根' | '毫升'
+import {ok} from "assert";
+
+type IngredientUnits = '块' | '克' | '片' | '个' | '根' | '毫升'
 
 /**
  * 抽象定义食材
  */
-abstract class Ingredient {
+export abstract class Ingredient {
   name: string              // 食材名称
   amount: number            // 食材需要数量
   unit: IngredientUnits     // 食材的单位
@@ -28,14 +30,31 @@ abstract class Ingredient {
  * 鸡翅的状态：
  * '生的'|'腌制完成的'|'煎好的'|'做好了'
  */
-export type CheckenWingsStatus = 'raw' | 'pickled' | 'fried' | 'ok'
+type ChickenWingsStatus = 'raw' | 'pickled' | 'fried' | 'ok'
+
+interface IChickenWingsStatus {
+  raw: ChickenWingsStatus,
+  pickled: ChickenWingsStatus,
+  fried: ChickenWingsStatus,
+  ok: ChickenWingsStatus,
+}
+
+/**
+ * 鸡翅状态值
+ */
+export const ChickenWingsStatus: IChickenWingsStatus = {
+  raw: 'raw',
+  pickled: 'pickled',
+  fried: 'fried',
+  ok: 'ok',
+}
 
 /**
  * 鸡翅
  */
-export class CheckenWings extends Ingredient {
-  private _status: CheckenWingsStatus                  //鸡翅的状态应该是私有的
-  constructor(_status: CheckenWingsStatus = 'raw') {
+export class ChickenWings extends Ingredient {
+  private _status: ChickenWingsStatus                  //鸡翅的状态应该是私有的
+  constructor(_status: ChickenWingsStatus = 'raw') {
     super(8, '新鲜的鸡翅', '块')
     this._status = _status
   }
@@ -44,11 +63,11 @@ export class CheckenWings extends Ingredient {
     console.log("凌晨3点，来自新西兰农场的原生态鸡翅，可能是世界上肉质最好的鸡翅之一！")
   }
 
-  get status(): CheckenWingsStatus {
+  get status(): ChickenWingsStatus {
     return this._status;
   }
 
-  set status(value: CheckenWingsStatus) {
+  set status(value: ChickenWingsStatus) {
     this._status = value;
   }
 }
@@ -151,7 +170,7 @@ export class Cola extends Ingredient {
 
 }
 
-let checkenWing = new CheckenWings()
+let chickenWing = new ChickenWings()
 // let salt = new Salt()
 // let soySauce = new SoySauce()
 // let ginger = new Ginger()
@@ -159,4 +178,4 @@ let checkenWing = new CheckenWings()
 // let scallion = new Scallion()
 // let cookingWine = new CookingWine()
 // let cola = new Cola()
-console.log(checkenWing.toString())
+console.log(chickenWing.toString())
