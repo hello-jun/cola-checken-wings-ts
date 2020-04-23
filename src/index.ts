@@ -65,7 +65,7 @@ console.log('步骤迭代器类型：', typeof stepsIterator)
 
 let done: boolean = false  // 是否完成
 const {chickenWings, cookingWine, salt, soySauce, ginger, starAnise, scallion, cola} = basket
-while (!done) {
+while (!done) { //遍历迭代器控制烹饪步骤顺序
   const step = stepsIterator.next()
   done = step.done as boolean   // 断言
   const stepName: cookingMethods.Methods | boolean = !done && <cookingMethods.Methods>step.value
