@@ -60,7 +60,7 @@ export class ChickenWings extends Ingredient {
   }
 
   describe(): void {
-    console.log("凌晨3点，来自新西兰农场的原生态鸡翅，可能是世界上肉质最好的鸡翅之一！")
+    console.log("鸡翅：凌晨3点，来自新西兰农场的原生态鸡翅，可能是世界上肉质最好的鸡翅之一！")
   }
 
   get status(): ChickenWingsStatus {
@@ -81,7 +81,7 @@ export class Salt extends Ingredient {
   }
 
   describe(): void {
-    console.log("昼夜交错时分，取自千年盐都自贡东源井最深处深处的一钵盐，极致提鲜")
+    console.log("盐 ：昼夜交错时分，取自千年盐都自贡东源井最深处深处的一钵盐，极致提鲜")
   }
 
 }
@@ -95,7 +95,7 @@ export class SoySauce extends Ingredient {
   }
 
   describe(): void {
-    console.log("海天特级金标生抽，一滴入味，两滴入髓")
+    console.log("生抽：海天特级金标生抽，一滴入味，两滴入髓")
   }
 
 }
@@ -109,7 +109,7 @@ export class Ginger extends Ingredient {
   }
 
   describe(): void {
-    console.log('外婆家种的生姜，儿时的味道')
+    console.log('姜 ：外婆家种的生姜，儿时的味道')
   }
 
 }
@@ -123,7 +123,7 @@ export class StarAnise extends Ingredient {
   }
 
   describe(): void {
-    console.log('广西表哥送的八角，每一个角，都是表哥的爱')
+    console.log('八角：广西表哥送的八角，每一个角，都是表哥的爱')
   }
 
 }
@@ -137,7 +137,7 @@ export class Scallion extends Ingredient {
   }
 
   describe(): void {
-    console.log('与邻居小姐姐一起种下的葱，如今都已亭亭玉立')
+    console.log('葱 ：与邻居小姐姐一起种下的葱，如今都已亭亭玉立')
   }
 
 }
@@ -151,7 +151,7 @@ export class CookingWine extends Ingredient {
   }
 
   describe(): void {
-    console.log('取自一瓶朴实无华的没有品牌标签的料酒')
+    console.log('料酒：取自一瓶朴实无华的没有品牌标签的料酒')
   }
 
 }
@@ -165,17 +165,8 @@ export class Cola extends Ingredient {
   }
 
   describe(): void {
-    console.log('一瓶82年的可乐，年代稍微有点久远，喝了可能会上头')
+    console.log('可乐：一瓶82年的可乐，年代稍微有点久远，喝了可能会上头')
   }
 
 }
 
-let chickenWing = new ChickenWings()
-// let salt = new Salt()
-// let soySauce = new SoySauce()
-// let ginger = new Ginger()
-// let starAnise = new StarAnise()
-// let scallion = new Scallion()
-// let cookingWine = new CookingWine()
-// let cola = new Cola()
-console.log(chickenWing.toString())
