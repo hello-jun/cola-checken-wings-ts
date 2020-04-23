@@ -3,12 +3,6 @@ import {
   Ingredient,
   ChickenWings,
   CookingWine,
-  Salt,
-  Scallion,
-  Cola,
-  Ginger,
-  SoySauce,
-  StarAnise,
   ChickenWingsStatus
 } from '../ingredients'
 
