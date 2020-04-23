@@ -13,6 +13,7 @@ cola-chicken-wings-ts 项目仅为本人学习TypeScript时的一个Demo项目�
 - 没有系统深入学习过 JavaScript
 - 已经能很熟练的使用 TypeScript
 
+---
 
 ## 关于 TypeScript & JavaScript 的一些看法
 通过阅读 TypeScript 相关文档，可以发现，TypeScript 是从面向对象的角度去进行类型检查，这一点与 JavaScript 委托思想相悖论，毕竟它的作者——安德斯·海尔斯伯格，是 C# 的首席架构师 ，设计思想一脉相承。  
