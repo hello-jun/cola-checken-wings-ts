@@ -6,6 +6,7 @@ import './copyright'
 console.log('=========== START ==============\n')
 /**
  * 烹饪步骤枚举
+ * @description 字符串枚举
  */
 enum Steps {
   pickle = 'pickle',
@@ -27,6 +28,10 @@ enum Ingredients {
   cola = 'Cola'
 }
 
+/**
+ * 菜篮子对象类型
+ * @description 定义可存放任意属性的菜篮子类型
+ */
 interface Basket {                  // 任意属性
   [propName: string]: ingredients.Ingredient
 }
@@ -50,6 +55,7 @@ const basket: Basket = Object.create(null)  // 所有的菜都放到篮子里
 /**
  * 预处理食材，如清洗
  * @param ingredient
+ * @description 泛型 通用的食材预处理函数，调用时才指定类型
  */
 function prepareIngredients<T extends ingredients.Ingredient>(ingredient: T): T { // 泛型以及泛型约束
   console.log(`清洗或切或盛碗---->${ingredient.name}`)
@@ -76,8 +82,8 @@ console.log('\n>>>>>>>开始烹饪，根据鸡肉状态---->[腌制]---->[煎炸
 while (!done) { //遍历迭代器控制烹饪步骤顺序
   const step = stepsIterator.next()
   done = step.done as boolean   // 断言
-  const stepName: cookingMethods.Methods | boolean = !done && <cookingMethods.Methods>step.value
-  if (typeof stepName !== 'boolean') cookingMethods[stepName](<ingredients.ChickenWings>chickenWings, cookingWine, salt, soySauce, ginger, starAnise, scallion, cola)
+  const stepName: cookingMethods.Methods | boolean = !done && <cookingMethods.Methods>step.value // 类型断言
+  if (typeof stepName !== 'boolean') cookingMethods[stepName](<ingredients.ChickenWings>chickenWings, cookingWine, salt, soySauce, ginger, starAnise, scallion, cola) // * 这里检查很有趣，只命中了第一个函数定义 pickle，具体原因未知
 }
 
 console.log('=========== END ==============\n')

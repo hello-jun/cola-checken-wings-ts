@@ -1,4 +1,6 @@
-// 所有的烹饪方法
+///////////////////////////////////////////
+/////    所有的烹饪方法都在此模块定义     /////
+/////////////////////////////////////////
 import {
   Ingredient,
   ChickenWings,
@@ -11,6 +13,7 @@ export type Methods = 'pickle' | 'fry' | 'braise'
 /**
  * 检查食材数量是否足够
  * @param ingredients
+ * @description 函数剩余参数，并指定剩余参数类型是公共父类型数组
  */
 function checkIngredientAmount(...ingredients: Ingredient[]): boolean {
   return ingredients.every(el => Boolean(el.amount))
@@ -20,7 +23,10 @@ function checkIngredientAmount(...ingredients: Ingredient[]): boolean {
  * 腌制：放入鸡翅、料酒进行腌制去腥
  * @param chickenWings
  * @param cookingWine
+ * @description 函数重载
  */
+export function pickle(chickenWings: ChickenWings, cookingWine: CookingWine): void
+export function pickle(chickenWings: ChickenWings, cookingWine: CookingWine, ...ingredients: Ingredient[]): void
 export function pickle(chickenWings: ChickenWings, cookingWine: CookingWine, ...ingredients: Ingredient[]): void {
   const enoughAmountSign: boolean = checkIngredientAmount(chickenWings, cookingWine)
   if (enoughAmountSign && chickenWings.status === ChickenWingsStatus.raw) {
@@ -35,6 +41,7 @@ export function pickle(chickenWings: ChickenWings, cookingWine: CookingWine, ...
  * 煎炸：将鸡翅放入锅中煎炸至两面金黄
  * @param chickenWings
  */
+export function fry(chickenWings: ChickenWings): void
 export function fry(chickenWings: ChickenWings, ...ingredients: Ingredient[]): void {
   const enoughAmountSign: boolean = checkIngredientAmount(chickenWings)
   if (chickenWings.status === ChickenWingsStatus.pickled && enoughAmountSign) { //鸡翅状态是腌制完成状态
